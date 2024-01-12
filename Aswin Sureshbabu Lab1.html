@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update table</title>
+</head>
+<body>
+
+  <style>
+    table, td {
+            border: 2.5px solid black;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            
+        }
+
+        td,
+        th {
+         border: 1px solid #423535;
+         text-align: left;
+         padding: 8px;
+         background-color: antiquewhite;
+       }
+       .mess{
+        color: red;
+       }
+  </style>
+
+<table id="mytable" border="1"> 
+  <tr>
+    <td>Row1 Col1</td> 
+    <td>Row1 Col2</td>
+  </tr> 
+  <tr>
+    <td>Row2 Col1</td> 
+    <td>Row2 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row3 Col1</td> 
+    <td>Row3 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row4 Col1</td> 
+    <td>Row4 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row5 Col1</td> 
+    <td>Row5 Col2</td>
+  </tr> 
+</table><br> 
+<p id="message" class="mess"></p>
+<input type="button" onclick="add()" value="Insert row">  
+<input type="button" onclick="del()" value="delete row">
+<input type="button" onclick="delfirst()" value="delete row from top">  
+</br>
+<script>
+         count = 5
+function add(){
+            var table =document.getElementById("mytable")
+            count++
+            
+
+            row=table.insertRow(-1)
+
+            row.insertCell(0).innerHTML= "Row"+ count+ "Col1"
+            row.insertCell(1).innerHTML= "Row"+ count+ "Col2"
+
+            if(table.rows.length==0){
+              document.getElementById("message").innerHTML= "Message:No more rows to delete"
+            }
+            else{
+              document.getElementById("message").innerHTML=''
+            }
+            
+          }
+
+        function del(){
+            table=document.getElementById("mytable")
+            table.deleteRow(-1)
+            if(table.rows.length==0){
+              document.getElementById("message").innerHTML= "Message:No more rows to delete"
+            }
+            else{
+              document.getElementById("message").innerHTML=''
+            }
+        }
+
+        function delfirst(){
+            table=document.getElementById("mytable")
+            table.deleteRow(0)
+            if(table.rows.length==0){
+              document.getElementById("message").innerHTML= "Message:No more rows to delete"
+            }
+            else{
+              document.getElementById("message").innerHTML=''
+            }
+            
+  
+   
+        }
+
+</script>
+</body>
+</html>
